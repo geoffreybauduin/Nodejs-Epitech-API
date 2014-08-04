@@ -22,7 +22,6 @@ class EpitechAPIConnector
 				login: @login
 				password: @password
 				remind: true
-		tried = false
 
 		url = do @settings.url_signIn
 		@log "Getting #{url}"
@@ -37,8 +36,8 @@ class EpitechAPIConnector
 				callbackFailure error response if callbackFailure
 			return @isSignedIn
 
-	getModule: (year, code, suffix, callbackSuccess, callbackFailure) ->
-		url = @settings.url_module year, code, suffix
+	getModule: (year, codemodule, codeinstance, callbackSuccess, callbackFailure) ->
+		url = @settings.url_module year, codemodule, codeinstance
 		@log "Getting #{url}"
 		@request.get url, (error, response) =>
 			if !error and response.statusCode == 200
@@ -49,8 +48,8 @@ class EpitechAPIConnector
 				@log "Failed to get #{url}"
 				callbackFailure error response if callbackFailure
 
-	getMeetingSlots: (year, code, suffix, codeacti, callbackSuccess, callbackFailure) ->
-		url = @settings.url_activityMeetingSlots year, code, suffix, codeacti
+	getMeetingSlots: (year, codemodule, codeinstance, codeacti, callbackSuccess, callbackFailure) ->
+		url = @settings.url_activityMeetingSlots year, codemodule, codeinstance, codeacti
 		@log "Getting #{url}"
 		@request.get url, (error, response) =>
 			if !error and response.statusCode == 200
