@@ -49,7 +49,6 @@ class EpitechAPIConnector
 				callbackFailure error response if callbackFailure
 
 	getMeetingSlots: (year, codemodule, codeinstance, codeacti, callbackSuccess, callbackFailure) ->
-		console.log year, codemodule, codeinstance, codeacti
 		url = @settings.url_activityMeetingSlots year, codemodule, codeinstance, codeacti
 		@log "Getting #{url}"
 		@request.get url, (error, response) =>
