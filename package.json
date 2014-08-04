@@ -1,5 +1,5 @@
 {
-  "name": "Epitech-API",
+  "name": "epitech-api",
   "version": "0.1.0",
   "description": "A small API to request Epitech's Intranet using Nodejs",
   "main": "build/index.js",
