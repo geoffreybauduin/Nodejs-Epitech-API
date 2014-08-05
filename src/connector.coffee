@@ -33,7 +33,7 @@ class EpitechAPIConnector
 				callbackSuccess json if callbackSuccess
 			else
 				@log "Student cannot be logged in"
-				callbackFailure error response if callbackFailure
+				callbackFailure error, response if callbackFailure
 			return @isSignedIn
 
 	getModule: (year, codemodule, codeinstance, callbackSuccess, callbackFailure) ->
@@ -46,7 +46,7 @@ class EpitechAPIConnector
 				callbackSuccess json if callbackSuccess
 			else
 				@log "Failed to get #{url}"
-				callbackFailure error response if callbackFailure
+				callbackFailure error, response if callbackFailure
 
 	getMeetingSlots: (year, codemodule, codeinstance, codeacti, callbackSuccess, callbackFailure) ->
 		url = @settings.url_activityMeetingSlots year, codemodule, codeinstance, codeacti
@@ -58,6 +58,6 @@ class EpitechAPIConnector
 				callbackSuccess json if callbackSuccess
 			else
 				@log "Failed to get #{url}"
-				callbackFailure error response if callbackFailure
+				callbackFailure error, response if callbackFailure
 
 exports.EpitechAPIConnector = EpitechAPIConnector
