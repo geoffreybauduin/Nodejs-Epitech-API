@@ -1,6 +1,6 @@
 {
   "name": "epitech-api",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "A small API to request Epitech's Intranet using Nodejs",
   "main": "build/index.js",
   "scripts": {
