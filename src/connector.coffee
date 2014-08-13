@@ -7,8 +7,9 @@ class EpitechAPIConnector
 		{EpitechAPISettings} = require "./settings"
 		@settings = new EpitechAPISettings
 		@stream = stream
-
-		@request = require("request").defaults {jar: true}
+		request = require("request")
+		@_cookieJar = request.jar()
+		@request = require("request").defaults {jar: @cookieJar}
 
 	log: (string) ->
 		@stream.write "#{string}\n" if @stream
