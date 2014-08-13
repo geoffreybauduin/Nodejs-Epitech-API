@@ -1,6 +1,6 @@
 {
   "name": "epitech-api",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "A small API to request Epitech's Intranet using Nodejs",
   "main": "build/index.js",
   "scripts": {
@@ -16,7 +16,7 @@
     "api"
   ],
   "author": "Geoffrey Bauduin <bauduin.geo@gmail.com>",
-  "license": "GPL v2",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/lght/Nodejs-Epitech-API/issues"
   },
