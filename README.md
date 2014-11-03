@@ -1,5 +1,6 @@
 Nodejs-Epitech-API
 ==================
+[ ![Codeship Status for lght/Nodejs-Epitech-API](https://www.codeship.io/projects/a48f68f0-459c-0132-b40a-027a8d46592e/status)](https://www.codeship.io/projects/45065)
 
 A small API to request Epitech's intranet using Nodejs
 
