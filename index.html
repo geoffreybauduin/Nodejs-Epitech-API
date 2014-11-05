@@ -1,0 +1,144 @@
+<!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on http://github.com/jonrohan -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen">
+  <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
+
+  <title>NodeJS Epitech API</title>
+  <meta name="description" content="A small API to request Epitech&#39;s intranet using Nodejs">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <header>
+      <h1 class="title">NodeJS Epitech API</h1>
+    </header>
+    <div id="container">
+      <p class="tagline">A small API to request Epitech&#39;s intranet using Nodejs</p>
+      <div id="main" role="main">
+        <div class="download-bar">
+        <div class="inner">
+          <a href="https://github.com/lght/Nodejs-Epitech-API/tarball/master" class="download-button tar"><span>Download</span></a>
+          <a href="https://github.com/lght/Nodejs-Epitech-API/zipball/master" class="download-button zip"><span>Download</span></a>
+          <a href="https://github.com/lght/Nodejs-Epitech-API" class="code">View NodeJS Epitech API on GitHub</a>
+        </div>
+        <span class="blc"></span><span class="trc"></span>
+        </div>
+        <article class="markdown-body">
+          <h1>
+<a id="nodejs-epitech-api" class="anchor" href="#nodejs-epitech-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>Nodejs-Epitech-API</h1>
+
+<p><a href="https://www.codeship.io/projects/45065"> <img src="https://www.codeship.io/projects/a48f68f0-459c-0132-b40a-027a8d46592e/status" alt="Codeship Status for lght/Nodejs-Epitech-API"></a></p>
+
+<p>A small API to request Epitech's intranet using Nodejs</p>
+
+<p><code>npm install epitech-api --save</code></p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<h3>
+<a id="login" class="anchor" href="#login" aria-hidden="true"><span class="octicon octicon-link"></span></a>Login</h3>
+
+<pre><code>
+var EpitechAPIConnector = require("epitech-api").EpitechAPIConnector;
+
+var connector = new EpitechAPIConnector("login_x", "passwordunix");
+
+var callbackSuccess = function (jsonData) {
+    console.log("User is connected");
+};
+
+var callbackFailure = function (error, response) {
+    console.log("User is not connected");
+};
+
+connector.signIn(callbackSuccess, callbackFailure);
+</code></pre>
+
+<h3>
+<a id="modules" class="anchor" href="#modules" aria-hidden="true"><span class="octicon octicon-link"></span></a>Modules</h3>
+
+<p>Once logged in, you can get some informations about a specific module. You need to provide its <code>year</code>, its <code>codemodule</code> and its <code>codeinstance</code>.</p>
+
+<pre><code>
+var EpitechAPIConnector = require("epitech-api").EpitechAPIConnector;
+
+var connector = new EpitechAPIConnector("login_x", "passwordunix");
+
+connector.signIn(function () {
+    connector.getModule("2013", "B-GPR-650", "FR-6-1", function (json) {
+        console.log("Successfully get'd module");
+    }, function (error, response) {
+        console.log("Couldn't get module");
+    });
+}, function () {
+    console.log("Cannot login");
+});
+</code></pre>
+
+<h3>
+<a id="activity-meeting-slots" class="anchor" href="#activity-meeting-slots" aria-hidden="true"><span class="octicon octicon-link"></span></a>Activity meeting slots</h3>
+
+<p>Once logged in, you can get a complete dump of the meeting slots page for an activity.
+You need to provide its <code>year</code>, its <code>codemodule</code>, its <code>codeinstance</code> and its <code>codeacti</code>.</p>
+
+<pre><code>
+var EpitechAPIConnector = require("epitech-api").EpitechAPIConnector;
+
+var connector = new EpitechAPIConnector("login_x", "passwordunix");
+
+connector.signIn(function () {
+    connector.getMeetingSlots("2013", "B-GPR-650", "FR-6-1", "acti-122352", function (json) {
+        console.log("Successfully get'd meeting slots");
+    }, function (error, response) {
+        console.log("Couldn't get meeting slots");
+    });
+}, function () {
+    console.log("Cannot login");
+});
+</code></pre>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="owner">
+      <p><a href="https://github.com/lght" class="avatar"><img src="https://avatars3.githubusercontent.com/u/1404977?v=2&amp;s=60" width="48" height="48"></a> <a href="https://github.com/lght">lght</a> maintains <a href="https://github.com/lght/Nodejs-Epitech-API">NodeJS Epitech API</a></p>
+
+
+      </div>
+      <div class="creds">
+        <small>This page generated using <a href="http://pages.github.com/">GitHub Pages</a><br>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
+      </div>
+    </footer>
+  </div>
+  <div class="current-section">
+    <a href="#top">Scroll to top</a>
+    <a href="https://github.com/lght/Nodejs-Epitech-API/tarball/master" class="tar">tar</a><a href="https://github.com/lght/Nodejs-Epitech-API/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
+    <p class="name"></p>
+  </div>
+
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-47269624-4");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+</body>
+</html>
