@@ -11,5 +11,8 @@ class EpitechAPISettings
 	
 	url_event: (year, module, city, acti, ev) ->
 		return "https://intra.epitech.eu/module/#{year}/#{module}/#{city}/acti-#{acti}/event-#{ev}?format=json"
+
+	url_eventRegistered: (year, module, city, acti, ev) ->
+		return "https://intra.epitech.eu/module/#{year}/#{module}/#{city}/acti-#{acti}/event-#{ev}/registered?format=json"
 	
 exports.EpitechAPISettings = EpitechAPISettings

@@ -129,6 +129,29 @@
       })(this));
     };
 
+    EpitechAPIConnector.prototype.getActivityRegistered = function(year, module, city, acti, ev, callbackSuccess, callbackFailure) {
+      var url;
+      url = this.settings.url_eventRegistered(year, module, city, acti, ev);
+      this.log("Getting " + url);
+      return this.request.get(url, (function(_this) {
+        return function(error, response) {
+          var json;
+          if (!error && response.statusCode === 200) {
+            json = _this.formatRequest(response);
+            _this.log("Succesfully get'd " + url);
+            if (callbackSuccess) {
+              return callbackSuccess(json);
+            }
+          } else {
+            _this.log("Failed to get " + url);
+            if (callbackFailure) {
+              return callbackFailure(error, response);
+            }
+          }
+        };
+      })(this));
+    };
+
     return EpitechAPIConnector;
 
   })();
