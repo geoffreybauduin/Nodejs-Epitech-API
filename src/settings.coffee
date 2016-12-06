@@ -15,4 +15,7 @@ class EpitechAPISettings
 	url_eventRegistered: (year, module, city, acti, ev) ->
 		return "https://intra.epitech.eu/module/#{year}/#{module}/#{city}/acti-#{acti}/event-#{ev}/registered?format=json"
 	
+	url_dayActivities: (year, month, day) ->
+		return "https://intra.epitech.eu/planning/load?format=json&start=#{year}-#{month}-#{day}&end=#{year}-#{month}-#{day}"
+		
 exports.EpitechAPISettings = EpitechAPISettings

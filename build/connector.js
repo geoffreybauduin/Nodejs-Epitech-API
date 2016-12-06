@@ -152,6 +152,29 @@
       })(this));
     };
 
+    EpitechAPIConnector.prototype.getDayActivities = function(year, month, day, callbackSuccess, callbackFailure) {
+      var url;
+      url = this.settings.url_dayActivities(year, month, day);
+      this.log("Getting " + url);
+      return this.request.get(url, (function(_this) {
+        return function(error, response) {
+          var json;
+          if (!error && response.statusCode === 200) {
+            json = _this.formatRequest(response);
+            _this.log("Succesfully get'd " + url);
+            if (callbackSuccess) {
+              return callbackSuccess(json);
+            }
+          } else {
+            _this.log("Failed to get " + url);
+            if (callbackFailure) {
+              return callbackFailure(error, response);
+            }
+          }
+        };
+      })(this));
+    };
+
     return EpitechAPIConnector;
 
   })();

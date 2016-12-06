@@ -25,6 +25,10 @@
       return "https://intra.epitech.eu/module/" + year + "/" + module + "/" + city + "/acti-" + acti + "/event-" + ev + "/registered?format=json";
     };
 
+    EpitechAPISettings.prototype.url_dayActivities = function(year, month, day) {
+      return "https://intra.epitech.eu/planning/load?format=json&start=" + year + "-" + month + "-" + day + "&end=" + year + "-" + month + "-" + day;
+    };
+
     return EpitechAPISettings;
 
   })();
