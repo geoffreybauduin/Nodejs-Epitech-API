@@ -25,7 +25,7 @@
     };
 
     EpitechAPIConnector.prototype.formatRequest = function(response) {
-      return JSON.parse(response.body.substr(response.body.indexOf('\n')));
+      return JSON.parse(response.body);
     };
 
     EpitechAPIConnector.prototype.signIn = function(callbackSuccess, callbackFailure) {

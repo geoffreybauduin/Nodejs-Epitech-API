@@ -15,7 +15,7 @@ class EpitechAPIConnector
 		@stream.write "#{string}\n" if @stream
 
 	formatRequest: (response) ->
-		return JSON.parse response.body.substr response.body.indexOf '\n'
+		return JSON.parse response.body
 
 	signIn: (callbackSuccess, callbackFailure) ->
 		data =
