@@ -198,9 +198,9 @@
       })(this));
     };
 
-    EpitechAPIConnector.prototype.getDayActivities = function(year, month, day, callbackSuccess, callbackFailure) {
+    EpitechAPIConnector.prototype.getDayActivities = function(startYear, startMonth, startDay, endYear, endMonth, endDay, callbackSuccess, callbackFailure) {
       var url;
-      url = this.settings.url_dayActivities(year, month, day);
+      url = this.settings.url_dayActivities(startYear, startMonth, startDay, endYear, endMonth, endDay);
       this.log("Getting " + url);
       return this.request.get(url, (function(_this) {
         return function(error, response) {

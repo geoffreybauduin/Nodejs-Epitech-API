@@ -109,8 +109,8 @@ class EpitechAPIConnector
 				@log "Failed to get #{url}"
 				callbackFailure error, response if callbackFailure
 
-	getDayActivities: (year, month, day, callbackSuccess, callbackFailure) ->
-		url = @settings.url_dayActivities year, month, day
+	getDayActivities: (startYear, startMonth, startDay, endYear, endMonth, endDay, callbackSuccess, callbackFailure) ->
+		url = @settings.url_dayActivities startYear, startMonth, startDay, endYear, endMonth, endDay
 		@log "Getting #{url}"
 		@request.get url, (error, response) =>
 			if !error and response.statusCode == 200
