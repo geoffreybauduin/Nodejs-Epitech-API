@@ -9,7 +9,7 @@ class EpitechAPIConnector
 		@stream = stream
 		request = require("request")
 		@_cookieJar = request.jar()
-		@request = require("request").defaults {jar: @cookieJar}
+		@request = require("request").defaults {jar: true}
 
 	log: (string) ->
 		@stream.write "#{string}\n" if @stream

@@ -14,7 +14,7 @@
       request = require("request");
       this._cookieJar = request.jar();
       this.request = require("request").defaults({
-        jar: this.cookieJar
+        jar: true
       });
     }
 
