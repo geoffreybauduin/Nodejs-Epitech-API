@@ -49,6 +49,18 @@ class EpitechAPIConnector
 				@log "Failed to get #{url}"
 				callbackFailure error, response if callbackFailure
 
+	getProfile: (login, callbackSuccess, callbackFailure) ->
+		url = @settings.url_profile login
+		@log "Getting #{url}"
+		@request.get url, (error, response) =>
+			if !error and response.statusCode == 200
+				json = @formatRequest response
+				@log "Succesfully get'd #{url}"
+				callbackSuccess json if callbackSuccess
+			else
+				@log "Failed to get #{url}"
+				callbackFailure error, response if callbackFailure
+
 	getModule: (year, codemodule, codeinstance, callbackSuccess, callbackFailure) ->
 		url = @settings.url_module year, codemodule, codeinstance
 		@log "Getting #{url}"

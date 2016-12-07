@@ -13,6 +13,10 @@
       return "https://intra.epitech.eu/logout?format=json";
     };
 
+    EpitechAPISettings.prototype.url_profile = function(login) {
+      return "https://intra.epitech.eu/user/" + login + "?format=json";
+    };
+
     EpitechAPISettings.prototype.url_module = function(year, codemodule, codeinstance) {
       return "https://intra.epitech.eu/module/" + year + "/" + codemodule + "/" + codeinstance + "/?format=json";
     };

@@ -6,6 +6,9 @@ class EpitechAPISettings
 	url_signOut: ->
 		return "https://intra.epitech.eu/logout?format=json"
 
+	url_profile: (login) ->
+		return "https://intra.epitech.eu/user/#{login}?format=json"
+
 	url_module: (year, codemodule, codeinstance) ->
 		return "https://intra.epitech.eu/module/#{year}/#{codemodule}/#{codeinstance}/?format=json"
 
