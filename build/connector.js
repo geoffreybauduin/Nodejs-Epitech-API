@@ -176,14 +176,19 @@
     };
 
     EpitechAPIConnector.prototype.setActivityStatus = function(year, module, city, acti, ev, email, status, callbackSuccess, callbackFailure) {
-      var fields, url;
+      var headers, payload, url;
       url = this.settings.url_eventChangeStatus(year, module, city, acti, ev, email, status);
       this.log("Posting " + url);
-      fields = {
-        "items[O][login]": email,
-        "items[0][present]": status
+      headers = {
+        'Content-Type': 'application/x-www-form-urlencoded'
       };
-      return this.request.post(url, fields, (function(_this) {
+      payload = {
+        url: url,
+        body: "items[0][login]=" + email + "&items[0][present]=" + status,
+        method: "POST",
+        headers: headers
+      };
+      return this.request(payload, (function(_this) {
         return function(error, response) {
           var json;
           if (!error && response.statusCode === 200) {

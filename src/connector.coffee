@@ -100,8 +100,9 @@ class EpitechAPIConnector
 	setActivityStatus: (year, module, city, acti, ev, email, status, callbackSuccess, callbackFailure)  ->
 		url = @settings.url_eventChangeStatus year, module, city, acti, ev, email, status
 		@log "Posting #{url}"
-		fields = {"items[O][login]":email, "items[0][present]":status}
-		@request.post url, fields, (error, response) =>
+		headers = {'Content-Type': 'application/x-www-form-urlencoded'}
+		payload = {url:url, body: "items[0][login]=#{email}&items[0][present]=#{status}", method: "POST", headers:headers}
+		@request payload, (error, response) =>
 			if !error and response.statusCode == 200
 				json = @formatRequest response
 				@log "Succesfully post'd #{url}"
