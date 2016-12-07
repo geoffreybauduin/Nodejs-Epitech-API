@@ -60,6 +60,29 @@
       })(this));
     };
 
+    EpitechAPIConnector.prototype.signOut = function(callbackSuccess, callbackFailure) {
+      var url;
+      url = this.settings.url_signOut;
+      this.log("Posting " + url);
+      return this.request.post(url, (function(_this) {
+        return function(error, response) {
+          var json;
+          if (!error && response.statusCode === 200) {
+            json = _this.formatRequest(response);
+            _this.log("Succesfully post'd " + url);
+            if (callbackSuccess) {
+              return callbackSuccess(json);
+            }
+          } else {
+            _this.log("Failed to get " + url);
+            if (callbackFailure) {
+              return callbackFailure(error, response);
+            }
+          }
+        };
+      })(this));
+    };
+
     EpitechAPIConnector.prototype.getModule = function(year, codemodule, codeinstance, callbackSuccess, callbackFailure) {
       var url;
       url = this.settings.url_module(year, codemodule, codeinstance);

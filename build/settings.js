@@ -9,6 +9,10 @@
       return "https://intra.epitech.eu/?format=json";
     };
 
+    EpitechAPISettings.prototype.url_signOut = function() {
+      return "https://intra.epitech.eu/logout?format=json";
+    };
+
     EpitechAPISettings.prototype.url_module = function(year, codemodule, codeinstance) {
       return "https://intra.epitech.eu/module/" + year + "/" + codemodule + "/" + codeinstance + "/?format=json";
     };
