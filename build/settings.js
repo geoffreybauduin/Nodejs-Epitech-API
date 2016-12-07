@@ -26,7 +26,11 @@
     };
 
     EpitechAPISettings.prototype.url_dayActivities = function(year, month, day) {
-      return "https://intra.epitech.eu/planning/load?format=json&start=" + year + "-" + month + "-" + day + "&end=" + year + "-" + month + "-" + day;
+      return "https://intra.epitech.eu/planning/load?start=" + year + "-" + month + "-" + day + "&end=" + year + "-" + month + "-" + day + "&format=json";
+    };
+
+    EpitechAPISettings.prototype.url_eventChangeStatus = function(year, module, city, acti, ev, email, status) {
+      return "https://intra.epitech.eu/module/" + year + "/" + module + "/" + city + "/acti-" + acti + "/event-" + ev + "/updateregistered?format=json";
     };
 
     return EpitechAPISettings;

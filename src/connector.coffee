@@ -97,4 +97,17 @@ class EpitechAPIConnector
 				@log "Failed to get #{url}"
 				callbackFailure error, response if callbackFailure
 
+	setActivityStatus: (year, module, city, acti, ev, email, status, callbackSuccess, callbackFailure)  ->
+		url = @settings.url_eventChangeStatus year, module, city, acti, ev, email, status
+		@log "Posting #{url}"
+		fields = {"items[O][login]":email, "items[0][present]":status}
+		@request.post url, fields, (error, response) =>
+			if !error and response.statusCode == 200
+				json = @formatRequest response
+				@log "Succesfully post'd #{url}"
+				callbackSuccess json if callbackSuccess
+			else
+				@log "Failed to post #{url}"
+				callbackFailure error, response if callbackFailure
+				
 exports.EpitechAPIConnector = EpitechAPIConnector
